@@ -1,0 +1,451 @@
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>𓆩♡𓆪 HAPPY NUMBERS · luxe</title>
+  <!-- Google Fonts & Font Awesome for that expensive feel -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,300;14..32,500;14..32,700;14..32,800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+  <style>
+    /* ——— ADVANCED CSS · LIQUID GOLD ——— */
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      min-height: 100vh;
+      background: radial-gradient(circle at 20% 30%, #0b0a0c, #030202);
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      font-family: 'Inter', sans-serif;
+      padding: 1.5rem;
+    }
+
+    .glass-panel {
+      max-width: 820px;
+      width: 100%;
+      background: rgba(20, 18, 22, 0.55);
+      backdrop-filter: blur(18px) saturate(180%);
+      -webkit-backdrop-filter: blur(18px) saturate(180%);
+      border-radius: 4.5rem 2rem 4.5rem 2rem;
+      padding: 3.5rem 3rem;
+      box-shadow: 0 30px 80px rgba(0, 0, 0, 0.8), 0 0 0 1px rgba(255, 215, 150, 0.15) inset;
+      border: 1px solid rgba(255, 215, 150, 0.2);
+      transition: all 0.4s ease;
+    }
+
+    .glass-panel:hover {
+      box-shadow: 0 40px 100px rgba(200, 140, 80, 0.25), 0 0 0 1.5px rgba(255, 215, 150, 0.35) inset;
+    }
+
+    h1 {
+      font-size: 3.4rem;
+      font-weight: 800;
+      letter-spacing: -0.02em;
+      background: linear-gradient(135deg, #f7e3c6 0%, #d9b382 70%, #b4824a 100%);
+      -webkit-background-clip: text;
+      background-clip: text;
+      color: transparent;
+      margin-bottom: 0.3rem;
+      display: flex;
+      align-items: center;
+      gap: 0.7rem;
+      filter: drop-shadow(0 4px 8px rgba(0, 0, 0, 0.6));
+    }
+
+    h1 i {
+      font-size: 2.8rem;
+      color: #d9b382;
+      text-shadow: 0 0 20px #b4824a55;
+    }
+
+    .subhead {
+      font-weight: 300;
+      color: rgba(230, 210, 190, 0.7);
+      letter-spacing: 1px;
+      font-size: 1.05rem;
+      border-left: 3px solid #c79a6e;
+      padding-left: 1.2rem;
+      margin-bottom: 2.8rem;
+      text-transform: uppercase;
+      backdrop-filter: blur(4px);
+    }
+
+    .input-group {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.8rem;
+      background: rgba(0, 0, 0, 0.35);
+      border-radius: 100px;
+      padding: 0.4rem;
+      border: 1px solid rgba(255, 215, 150, 0.2);
+      backdrop-filter: blur(6px);
+      transition: 0.25s;
+    }
+
+    .input-group:focus-within {
+      border-color: #d9b382;
+      box-shadow: 0 0 30px #b4824a33;
+    }
+
+    .input-group input {
+      flex: 1;
+      min-width: 160px;
+      background: transparent;
+      border: none;
+      padding: 1.1rem 1.8rem;
+      font-size: 1.25rem;
+      font-weight: 500;
+      color: #f2e3d4;
+      outline: none;
+      font-family: 'Inter', monospace;
+      letter-spacing: 0.4px;
+    }
+
+    .input-group input::placeholder {
+      color: rgba(200, 180, 160, 0.4);
+      font-weight: 300;
+      letter-spacing: 0.2px;
+    }
+
+    .input-group button {
+      background: linear-gradient(145deg, #d6b087, #b68454);
+      border: none;
+      padding: 0.9rem 2.6rem;
+      border-radius: 100px;
+      font-weight: 700;
+      font-size: 1.1rem;
+      color: #0f0d0e;
+      letter-spacing: 0.5px;
+      cursor: pointer;
+      transition: 0.25s ease;
+      box-shadow: 0 4px 18px rgba(180, 120, 60, 0.5);
+      display: flex;
+      align-items: center;
+      gap: 0.6rem;
+      text-transform: uppercase;
+    }
+
+    .input-group button i {
+      font-size: 1.1rem;
+    }
+
+    .input-group button:hover {
+      transform: scale(1.02) translateY(-2px);
+      background: linear-gradient(145deg, #e7c7a0, #c79a6e);
+      box-shadow: 0 12px 28px #b4824a66;
+      color: #090708;
+    }
+
+    .input-group button:active {
+      transform: scale(0.97);
+    }
+
+    /* result display — lavish */
+    .result-card {
+      margin-top: 2.8rem;
+      padding: 1.8rem 2.2rem;
+      background: rgba(0, 0, 0, 0.25);
+      border-radius: 2.5rem 1.2rem 2.5rem 1.2rem;
+      backdrop-filter: blur(6px);
+      border: 1px solid rgba(255, 215, 150, 0.1);
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      flex-wrap: wrap;
+      transition: 0.3s;
+      min-height: 100px;
+    }
+
+    .result-badge {
+      display: flex;
+      align-items: center;
+      gap: 1.2rem;
+    }
+
+    .result-badge .icon {
+      font-size: 2.4rem;
+      width: 60px;
+      height: 60px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      border-radius: 50%;
+      background: rgba(255, 215, 150, 0.08);
+      border: 1px solid rgba(255, 215, 150, 0.2);
+      transition: 0.3s;
+    }
+
+    .result-text {
+      font-size: 1.7rem;
+      font-weight: 700;
+      letter-spacing: -0.3px;
+      color: #f5e8da;
+    }
+
+    .result-text small {
+      font-weight: 300;
+      font-size: 1rem;
+      color: #b8a18c;
+      display: block;
+      margin-top: 2px;
+    }
+
+    .status-badge {
+      font-size: 1.1rem;
+      font-weight: 600;
+      padding: 0.4rem 1.6rem;
+      border-radius: 60px;
+      background: rgba(0, 0, 0, 0.4);
+      border: 1px solid rgba(255, 215, 150, 0.2);
+      text-transform: uppercase;
+      backdrop-filter: blur(4px);
+    }
+
+    .status-badge.true {
+      background: #264d3a;
+      color: #b3e6d0;
+      border-color: #5f9b7a;
+      box-shadow: 0 0 20px #2b7a4e33;
+    }
+
+    .status-badge.false {
+      background: #4d2c2c;
+      color: #f5baba;
+      border-color: #a55858;
+      box-shadow: 0 0 20px #7a2b2b33;
+    }
+
+    .trace-panel {
+      margin-top: 2.2rem;
+      background: rgba(0, 0, 0, 0.2);
+      border-radius: 2rem;
+      padding: 1rem 1.8rem;
+      border: 1px solid rgba(255, 215, 150, 0.06);
+      font-size: 0.95rem;
+      color: #b8a99a;
+      word-break: break-all;
+      min-height: 3.6rem;
+      display: flex;
+      align-items: center;
+      flex-wrap: wrap;
+      gap: 0.5rem 0.8rem;
+      backdrop-filter: blur(4px);
+    }
+
+    .trace-panel span {
+      background: rgba(255, 215, 150, 0.04);
+      padding: 0.2rem 1rem;
+      border-radius: 60px;
+      font-family: 'Inter', monospace;
+      font-weight: 400;
+      letter-spacing: 0.2px;
+      border: 1px solid rgba(255, 215, 150, 0.05);
+    }
+
+    .trace-panel .arrow {
+      color: #7f6b58;
+      font-size: 1rem;
+    }
+
+    .footnote {
+      margin-top: 2.2rem;
+      font-size: 0.75rem;
+      color: #5f5348;
+      text-align: right;
+      letter-spacing: 0.8px;
+      border-top: 1px solid rgba(255, 215, 150, 0.05);
+      padding-top: 1.5rem;
+    }
+
+    .footnote i {
+      margin-right: 6px;
+    }
+
+    @media (max-width: 600px) {
+      .glass-panel {
+        padding: 2rem 1.5rem;
+      }
+
+      h1 {
+        font-size: 2.5rem;
+        flex-wrap: wrap;
+      }
+
+      .input-group {
+        border-radius: 40px;
+      }
+
+      .input-group button {
+        padding: 0.8rem 1.6rem;
+        font-size: 0.95rem;
+      }
+
+      .result-text {
+        font-size: 1.3rem;
+      }
+    }
+  </style>
+</head>
+
+<body>
+  <div class="glass-panel">
+    <h1>
+      <i class="fas fa-gem"></i> happy<span style="font-weight:300;color:#b79a7a;">·</span>numbers
+    </h1>
+    <div class="subhead">
+      <i class="fas fa-arrow-right" style="margin-right:10px;opacity:0.6;"></i> sum of squares · cycle detection
+    </div>
+
+    <div class="input-group">
+      <input type="number" id="numberInput" placeholder="enter integer" value="19" min="1" step="1">
+      <button id="checkBtn"><i class="fas fa-sparkles"></i> check</button>
+    </div>
+
+    <div class="result-card" id="resultCard">
+      <div class="result-badge">
+        <div class="icon" id="resultIcon"><i class="fas fa-heart" style="color:#d9b382;"></i></div>
+        <div class="result-text" id="resultText">
+          19 <small>happy</small>
+        </div>
+      </div>
+      <div class="status-badge true" id="statusBadge">✓ true</div>
+    </div>
+
+    <div class="trace-panel" id="tracePanel">
+      <span>19</span> <span class="arrow">→</span> <span>82</span> <span class="arrow">→</span> <span>68</span> <span class="arrow">→</span> <span>100</span> <span class="arrow">→</span> <span>1</span>
+    </div>
+    <div class="footnote">
+      <i class="fas fa-code"></i> luxury · deterministic · O(log n)
+    </div>
+  </div>
+
+  <script>
+    (function() {
+      "use strict";
+      // ---------- CORE ALGORITHM (HAPPY NUMBER) ----------
+      function isHappy(n) {
+        if (n <= 0) return false;
+        const seen = new Set();
+        let current = n;
+        while (current !== 1 && !seen.has(current)) {
+          seen.add(current);
+          let sum = 0;
+          let temp = current;
+          while (temp > 0) {
+            const digit = temp % 10;
+            sum += digit * digit;
+            temp = Math.floor(temp / 10);
+          }
+          current = sum;
+        }
+        return current === 1;
+      }
+      // ---------- TRACE GENERATOR (for UI) ----------
+      function getHappyTrace(n) {
+        if (n <= 0) return [];
+        const seen = new Set();
+        const trace = [];
+        let current = n;
+        while (current !== 1 && !seen.has(current)) {
+          seen.add(current);
+          trace.push(current);
+          let sum = 0;
+          let temp = current;
+          while (temp > 0) {
+            const digit = temp % 10;
+            sum += digit * digit;
+            temp = Math.floor(temp / 10);
+          }
+          current = sum;
+        }
+        trace.push(current); // either 1 or cycle start
+        return trace;
+      }
+      // ---------- DOM REFS ----------
+      const inputEl = document.getElementById('numberInput');
+      const checkBtn = document.getElementById('checkBtn');
+      const resultText = document.getElementById('resultText');
+      const resultIcon = document.getElementById('resultIcon');
+      const statusBadge = document.getElementById('statusBadge');
+      const tracePanel = document.getElementById('tracePanel');
+      // ---------- RENDER UI ----------
+      function renderResult(n) {
+        if (!Number.isInteger(n) || n <= 0) {
+          resultText.innerHTML = `<span style="color:#b8a18c;">enter positive integer</span>`;
+          statusBadge.className = 'status-badge';
+          statusBadge.textContent = '⏳ waiting';
+          tracePanel.innerHTML = `<span style="opacity:0.5;">enter a number to see trace</span>`;
+          resultIcon.innerHTML = `<i class="fas fa-hourglass-half" style="color:#7f6b58;"></i>`;
+          return;
+        }
+        const happy = isHappy(n);
+        const trace = getHappyTrace(n);
+        // main result
+        resultText.innerHTML = `${n} <small>${happy ? 'happy ✦' : 'unhappy ✧'}</small>`;
+        // icon + badge
+        if (happy) {
+          resultIcon.innerHTML = `<i class="fas fa-heart" style="color:#d9b382; text-shadow:0 0 18px #b4824a;"></i>`;
+          statusBadge.className = 'status-badge true';
+          statusBadge.innerHTML = `<i class="fas fa-check-circle" style="margin-right:6px;"></i> true`;
+        } else {
+          resultIcon.innerHTML = `<i class="fas fa-skull" style="color:#a55858; text-shadow:0 0 18px #7a2b2b;"></i>`;
+          statusBadge.className = 'status-badge false';
+          statusBadge.innerHTML = `<i class="fas fa-times-circle" style="margin-right:6px;"></i> false`;
+        }
+        // trace panel
+        if (trace.length > 0) {
+          let html = '';
+          for (let i = 0; i < trace.length; i++) {
+            const val = trace[i];
+            const isLast = (i === trace.length - 1);
+            const isCycle = (i < trace.length - 1 && trace.indexOf(val) !== i);
+            let style = '';
+            if (isLast && val === 1) style = 'color:#b3e6d0; border-color:#5f9b7a;';
+            else if (isLast && val !== 1) style = 'color:#f5baba; border-color:#a55858;';
+            else if (isCycle) style = 'color:#c79a6e; border-color:#b4824a;';
+            html += `<span style="${style}">${val}</span>`;
+            if (!isLast) html += `<span class="arrow">→</span>`;
+          }
+          tracePanel.innerHTML = html;
+        } else {
+          tracePanel.innerHTML = `<span style="opacity:0.4;">no trace</span>`;
+        }
+      }
+      // ---------- EVENT HANDLERS ----------
+      function handleCheck() {
+        const raw = inputEl.value.trim();
+        if (raw === '') {
+          renderResult(null);
+          return;
+        }
+        const num = Number(raw);
+        if (!Number.isInteger(num) || num < 1) {
+          renderResult(null);
+          return;
+        }
+        renderResult(num);
+      }
+      checkBtn.addEventListener('click', handleCheck);
+      inputEl.addEventListener('keydown', (e) => {
+        if (e.key === 'Enter') {
+          e.preventDefault();
+          handleCheck();
+        }
+      });
+      // initial load with default 19
+      window.addEventListener('DOMContentLoaded', () => {
+        inputEl.value = '19';
+        renderResult(19);
+      });
+    })();
+  </script>
+</body>
+
+</html>
